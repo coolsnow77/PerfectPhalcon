@@ -8,6 +8,7 @@ define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
 
 $di = require_once BASE_PATH.'/bootstrap/autoload.php';
+if (!env('APP_KEY')) die('app key lost');
 /**
  * Handle the request
  */
