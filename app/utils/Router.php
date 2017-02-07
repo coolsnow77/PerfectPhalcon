@@ -31,6 +31,9 @@ class Router extends baseRouter
             require_once $router_file;
         }
         self::$_middleware = require_once APP_PATH.'/config/middleware.php';
+        self::getInstance()->notFound(array('controller'=>'error','action'=>'notFound'));
+        self::get("/error/uncaughtException", "error::uncaughtException");
+        self::get("/error/notFound", "error::notFound");
         self::getInstance()->removeExtraSlashes(true);
         return self::getInstance();
     }

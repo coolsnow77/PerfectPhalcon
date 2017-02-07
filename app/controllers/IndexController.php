@@ -5,10 +5,7 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
-        dd(session('abc'));
-        dd(session()->get('aaa'));
-        dd(session());
-        dd($this->session);
+        $this->view->pick('index/index');
     }
 
     public function testAction()

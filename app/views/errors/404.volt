@@ -34,6 +34,6 @@
 
 {% block content %}
     <div class="content">
-        <div class="title">Welcome to Perfect Phalcon.</div>
+        <div class="title">You get lost.</div>
     </div>
 {% endblock %}

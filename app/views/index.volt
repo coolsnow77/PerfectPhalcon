@@ -7,10 +7,12 @@
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Phalcon PHP Framework</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        {% block css %}{% endblock %}
     </head>
     <body>
         <div class="container">
             {{ content() }}
+            {% block content %}{% endblock %}
         </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
