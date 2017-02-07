@@ -5,6 +5,16 @@ namespace App\Utils;
 use \Phalcon\Mvc\Router as baseRouter;
 class Router extends baseRouter
 {
+    /*
+    |--------------------------------------------------------------------------
+    | router
+    |--------------------------------------------------------------------------
+    |
+    | 优化phalcon路由类，并完善路由中间件功能，如需其他功能，请使用phalcon的设置方式
+    |
+    |
+    */
+
     static private $_instance;
     static private $_router;
     static private $_middleware;

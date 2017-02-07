@@ -5,6 +5,17 @@ use Symfony\Component\VarDumper\Dumper\HtmlDumper as SymfonyHtmlDumper;
 
 class HtmlDumper extends SymfonyHtmlDumper
 {
+
+    /*
+    |--------------------------------------------------------------------------
+    | HtmlDumper
+    |--------------------------------------------------------------------------
+    |
+    | 引用laravel中对Symfony\Component\VarDumper\Dumper\HtmlDumper的主题优化
+    |
+    |
+    */
+
     /**
      * Colour definitions for output.
      *

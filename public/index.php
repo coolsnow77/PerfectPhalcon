@@ -2,6 +2,8 @@
 
 error_reporting(E_ALL);
 
+if (version_compare(PHP_VERSION,'7.0.0','<')) die('require PHP > 7');
+
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
 

@@ -2,6 +2,16 @@
 use Phalcon\Di\FactoryDefault;
 use Dotenv\Dotenv;
 
+/*
+|--------------------------------------------------------------------------
+| autoload
+|--------------------------------------------------------------------------
+|
+| 此处是对phalcon框架的调用，使框架可以正常使用
+|
+|
+*/
+
 $di = new FactoryDefault();
 /**
  * require composer autoload

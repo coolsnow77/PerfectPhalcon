@@ -5,6 +5,14 @@ namespace App\Utils;
 use Phalcon\Mvc\Controller;
 class Factory extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Factory
+    |--------------------------------------------------------------------------
+    |
+    | 此类便于获取di中的对象，方便操作
+    |
+    */
     static $_instance;
 
     static public function session()

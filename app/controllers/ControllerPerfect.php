@@ -3,6 +3,17 @@ use App\Utils\Router;
 use App\Middleware\Middleware;
 trait ControllerPerfect
 {
+
+    /*
+    |--------------------------------------------------------------------------
+    | ControllerPerfect
+    |--------------------------------------------------------------------------
+    |
+    | 此处是对phalcon perfect 的优化，并是实现路由中间件的具体地方
+    |
+    |
+    */
+
     /**
      * before execute route
      * @author shizhice <shizhice@gmial.com>

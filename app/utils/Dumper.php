@@ -7,6 +7,16 @@ use Symfony\Component\VarDumper\Dumper\CliDumper;
 
 class Dumper
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Dumper
+    |--------------------------------------------------------------------------
+    |
+    | 引用laravel中dump的主题优化
+    |
+    |
+    */
+
     /**
      * Dump a value with elegance.
      *
