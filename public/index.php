@@ -14,7 +14,7 @@ if (!env('APP_KEY')) die('app key lost');
  */
 $application = new \Phalcon\Mvc\Application($di);
 
-if (env('debug') === true) {
+if (env('APP_DEBUG') === true) {
     (new \Phalcon\Debug)->listen();
     echo $application->handle()->getContent();
 }else{
