@@ -11,5 +11,5 @@ use App\Utils\Router;
 |
 */
 
-Router::get("/", "index::index");
+Router::get("/", "index::index")->validate(['test']);
 Router::get("/test", "index::test");

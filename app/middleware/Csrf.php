@@ -1,7 +1,7 @@
 <?php
 namespace App\Middleware;
 
-class CsrfMiddleware implements Middleware
+class Csrf implements Middleware
 {
     private static $_token;
 

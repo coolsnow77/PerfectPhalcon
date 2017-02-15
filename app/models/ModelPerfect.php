@@ -221,7 +221,7 @@ trait ModelPerfect
     {
         $result = static::find(static::makeCondition());
         self::_unsetAttributes();
-        return self::getFullInstance($result);
+        return $result;
     }
 
     static public function _update($data)
@@ -241,7 +241,7 @@ trait ModelPerfect
         $result = static::findFirst(!is_null($id) ? $id : static::getInstance()->makeCondition());
 
         self::_unsetAttributes();
-        return self::getFullInstance($result);
+        return $result;
     }
 
     /**
@@ -312,7 +312,7 @@ trait ModelPerfect
         static::$_limit = $num;
         static::$_offset = $num * ($page - 1);
 
-        $result = self::getFullInstance(static::find(static::makeCondition()));
+        $result = static::find(static::makeCondition());
         self::_unsetAttributes();
         return [
             'preNum' => $num,
@@ -351,18 +351,5 @@ trait ModelPerfect
     {
         static::_makeWhereWithArray($where);
         return !!static::_count();
-    }
-
-    static protected function getFullInstance($result)
-    {
-        if (!$result instanceof static){
-            $obj = new static;
-            foreach(get_object_vars($result) as $key => $value) {
-                $obj->$key = $value;
-            }
-            $obj->dirtyState = 0;
-            return $obj;
-        }
-        return $result;
     }
 }

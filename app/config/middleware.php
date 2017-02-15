@@ -11,6 +11,15 @@
     */
 
 return [
-    'csrf' => App\Middleware\CsrfMiddleware::class,//csrf
-    'checkForMaintenanceMode' => App\Middleware\CheckForMaintenanceMode::class,//检查维护模式
+    'overallMiddleware' => [
+        App\Middleware\Csrf::class,
+        App\Middleware\CheckForMaintenanceMode::class,//检查维护模式
+    ],
+    'routeMiddleware' => [
+        'csrf' => App\Middleware\Csrf::class,//csrf
+        'checkForMaintenanceMode' => App\Middleware\CheckForMaintenanceMode::class,//检查维护模式
+    ],
+    'validate' => [
+        'test' => App\Middleware\Validate\Test::class,
+    ],
 ];

@@ -18,10 +18,6 @@ class Router extends baseRouter
     static private $_instance;
     static private $_router;
     static private $_middleware;
-    static private $_overallMiddleware = [
-        'csrf',
-        'checkForMaintenanceMode',
-    ];
 
     /**
      * get middleware
@@ -91,7 +87,28 @@ class Router extends baseRouter
      */
     public function middleware(array $middleware)
     {
-        self::$_router->middleware = array_unique(array_merge(self::$_overallMiddleware,$middleware));
+        foreach ($middleware as &$item) {
+            $item = 'routeMiddleware@'.$item;
+        }
+        self::$_router->middleware = isset(self::$_router->middleware)
+                                        ? array_merge(self::$_router->middleware,$middleware)
+                                        : $middleware;
+        return self::getInstance();
+    }
+
+    /**
+     * validate
+     * @param array $validate
+     * @return Router
+     */
+    public function validate(array $validate)
+    {
+        foreach ($validate as &$item) {
+            $item = 'validate@'.$item;
+        }
+        self::$_router->middleware = isset(self::$_router->middleware)
+                                        ? array_merge(self::$_router->middleware,$validate)
+                                        : $validate;
         return self::getInstance();
     }
 
