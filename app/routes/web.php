@@ -11,5 +11,7 @@ use App\Utils\Router;
 |
 */
 
-Router::get("/", "index::index")->validate(['test']);
+Router::get("/", "index::index");
 Router::get("/test", "index::test");
+Router::get("/login", "App\\Controllers\\Auth\\login::showLoginForm");
+Router::post("/login", "App\\Controllers\\Auth\\login::login")->validate(['login']);

@@ -52,14 +52,14 @@ if (! function_exists('config')) {
 if (! function_exists('encrypt')) {
     function encrypt($str)
     {
-        return Factory::crypt()->encrypt($str);
+        return base64_encode(Factory::crypt()->encrypt($str));
     }
 }
 
 if (! function_exists('decrypt')) {
     function decrypt($str)
     {
-        return Factory::crypt()->decrypt($str);
+        return Factory::crypt()->decrypt(base64_decode($str));
     }
 }
 
@@ -208,6 +208,37 @@ if (! function_exists('str_random')) {
         }
 
         return $string;
+    }
+}
+
+if (! function_exists('abort')) {
+    function abort($code = 404)
+    {
+        if ($code == 404) {
+            return \App\Utils\Response::redirect('/error/notFound');
+        }elseif($code == 500){
+            return \App\Utils\Response::redirect('/error/notFound');
+        }
+        return false;
+    }
+}
+
+
+if (! function_exists('csrf_token')) {
+    function csrf_token()
+    {
+        if (!session()->has('_token')) {
+            session(['_token',str_random(40)]);
+        }
+
+        return session('_token');
+    }
+}
+
+if (! function_exists('csrf_field')) {
+    function csrf_field()
+    {
+        return '<input type="hidden" name="_token" value="'.encrypt(csrf_token()).'">';
     }
 }
 

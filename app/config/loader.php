@@ -13,6 +13,8 @@ $loader->registerDirs(
 )->registerNamespaces(
     [
         'App\Utils' => APP_PATH . '/utils/',
+        'App\Services' => APP_PATH . '/services/',
         'App\Middleware' => APP_PATH . '/middleware/',
+        'App\Controllers' => APP_PATH . '/controllers/',
     ]
 )->register();

@@ -40,6 +40,16 @@ class Factory extends Controller
         return self::getInstance()->crypt;
     }
 
+    static public function response()
+    {
+        return self::getInstance()->response;
+    }
+
+    static public function view()
+    {
+        return self::getInstance()->view;
+    }
+
     static private function getInstance()
     {
         self::$_instance or self::$_instance = new self;
